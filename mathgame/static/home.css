@@ -1,0 +1,257 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #1c2026;
+    color: #e6e9ef;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.45;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 36px 20px 24px;
+}
+
+.header h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #93b0d4;
+}
+
+.header p {
+    color: #a6b0be;
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+/* Main Container */
+.container {
+    width: 90%;
+    max-width: 620px;
+    margin: 8px auto 36px;
+    padding: 30px;
+    background-color: #252a33;
+    border: 1px solid #363d4a;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* Section Headings */
+.container h3 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #b4becb;
+    margin-bottom: 14px;
+}
+
+/* Difficulty and Operations */
+.difficulty,
+.operations,
+.question-count {
+    margin-bottom: 26px;
+}
+
+/* Radio Options */
+.level-box,
+.operation-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.level-box label,
+.operation-box label {
+    position: relative;
+    cursor: pointer;
+    padding: 11px 16px;
+    border: 1px solid #414959;
+    border-radius: 8px;
+    background-color: #2e3440;
+    color: #d5dce6;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.level-box label:hover,
+.operation-box label:hover {
+    border-color: #7c98bc;
+    background-color: #363e4d;
+}
+
+/* Hide Default Radio */
+.level-box input,
+.operation-box input {
+    display: none;
+}
+
+/* Selected Radio Option */
+.level-box label:has(input:checked),
+.operation-box label:has(input:checked) {
+    background-color: #3b597d;
+    color: #f4f6f9;
+    border-color: #88a6cc;
+}
+
+/* Keyboard Focus */
+.level-box label:has(input:focus-visible),
+.operation-box label:has(input:focus-visible) {
+    outline: 2px solid #9ab5d8;
+    outline-offset: 2px;
+}
+
+/* Question Count */
+.question-count select {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: #2e3440;
+    color: #e6e9ef;
+    border: 1px solid #414959;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.18s ease;
+}
+
+.question-count select:focus {
+    border-color: #88a6cc;
+}
+
+.question-count option {
+    background-color: #252a33;
+    color: #e6e9ef;
+}
+
+/* Start Button */
+.start {
+    text-align: center;
+}
+
+.start button {
+    width: 100%;
+    padding: 14px;
+    background-color: #466891;
+    color: #f8fafc;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.18s ease, transform 0.15s ease;
+}
+
+.start button:hover {
+    background-color: #5278a6;
+    transform: translateY(-1px);
+}
+
+.start button:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px 15px;
+    color: #8f99a8;
+    font-size: 13px;
+    border-top: 1px solid #2e3440;
+}
+
+/* Laptop & Large Screens */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 640px;
+        padding: 34px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .header {
+        padding: 30px 16px 20px;
+    }
+
+    .container {
+        width: 92%;
+        padding: 24px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    .header {
+        padding: 24px 14px 16px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 94%;
+        padding: 20px 16px;
+        margin-top: 4px;
+        margin-bottom: 24px;
+        border-radius: 12px;
+    }
+
+    .difficulty,
+    .operations,
+    .question-count {
+        margin-bottom: 22px;
+    }
+
+    .level-box,
+    .operation-box {
+        gap: 8px;
+    }
+
+    .level-box label,
+    .operation-box label {
+        padding: 9px 13px;
+        font-size: 13px;
+    }
+
+    .question-count select {
+        padding: 11px 12px;
+        font-size: 14px;
+    }
+
+    .start button {
+        padding: 13px;
+        font-size: 15px;
+    }
+
+    .footer {
+        padding: 16px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 350px) {
+    .container {
+        padding: 16px 12px;
+    }
+
+    .level-box label,
+    .operation-box label {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}

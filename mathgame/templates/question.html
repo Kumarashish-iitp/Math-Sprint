@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Sprint | Quiz</title>
+    <link rel="stylesheet" href="{% static 'question.css' %}">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Math Sprint</h1>
+        <p>Focus. Calculate. Improve.</p>
+    </div>
+
+    <div class="quiz-container">
+
+        <div class="quiz-info">
+            <h3>
+                Question {{ question_number }} of {{ total_questions }}
+            </h3>
+
+            <p>Score: {{ score }}</p>
+        </div>
+
+        {% if feedback %}
+            <div class="feedback-box">
+                <p>{{ feedback }}</p>
+            </div>
+        {% endif %}
+
+        <div class="question-box">
+            <h2>{{ question }} = ?</h2>
+        </div>
+
+        <form method="post" action="{% url 'play_quiz' %}">
+            {% csrf_token %}
+
+            <div class="answer-box">
+                <label for="answer">Your Answer</label>
+
+                <input
+                    type="number"
+                    name="answer"
+                    id="answer"
+                    placeholder="Enter your answer"
+                    autofocus
+                    required
+                >
+            </div>
+
+            <div class="submit-box">
+                <button type="submit">Submit Answer</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="footer">
+        <p>Math Sprint © 2026 | Practice. Improve. Excel.</p>
+    </div>
+
+</body>
+</html>

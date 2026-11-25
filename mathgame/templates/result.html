@@ -1,0 +1,167 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Sprint | Result</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f2f4f8;
+            padding: 20px;
+        }
+
+        .result-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            padding: 32px 24px;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            animation: popCard 0.35s ease-out;
+        }
+
+        @keyframes popCard {
+            0% {
+                opacity: 0;
+                transform: scale(0.85) translateY(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        #result-title {
+            font-size: 26px;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .result-subtitle {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+
+        #score-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .score-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .score-label {
+            font-size: 13px;
+            color: #475569;
+            margin-top: 6px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        #back-home-btn,
+        #play-again-btn {
+            flex: 1;
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.2s ease;
+        }
+
+        #back-home-btn {
+            background-color: #e2e8f0;
+            color: #1e293b;
+        }
+
+        #back-home-btn:hover {
+            background-color: #cbd5e1;
+        }
+
+        #play-again-btn {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        #play-again-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Phone Responsive */
+        @media (max-width: 480px) {
+            body {
+                padding: 14px;
+            }
+
+            .result-card {
+                padding: 24px 18px;
+                border-radius: 12px;
+            }
+
+            #result-title {
+                font-size: 22px;
+            }
+
+            .score-text {
+                font-size: 28px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            #back-home-btn,
+            #play-again-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="result-card" id="result-card">
+        <h1 id="result-title">Quiz Completed!</h1>
+        <p class="result-subtitle">Here is your final performance</p>
+
+        <div id="score-box">
+            <p class="score-text">{{ score }} / {{ total_questions }}</p>
+            <p class="score-label">{{ score }} correct out of {{ total_questions }} questions</p>
+        </div>
+
+        <div class="btn-group">
+            <a href="{% url 'home' %}" id="back-home-btn">Back to Home</a>
+            <a href="{% url 'play_again' %}" id="play-again-btn">Play Again</a>
+        </div>
+    </div>
+
+</body>
+</html>
